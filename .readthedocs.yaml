@@ -41,7 +41,7 @@ python:
 
 # Set the version of Python and other tools you might need
 # python:
-#   version: "3.11"
+#   version: "3.13"
 
 # Declare the Python requirements required to build your docs
 # python:
