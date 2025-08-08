@@ -2801,17 +2801,17 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pyscf"
-version = "2.9.0"
+version = "2.10.0"
 description = "PySCF: Python-based Simulations of Chemistry Framework"
 optional = false
 python-versions = "*"
 groups = ["main"]
 files = [
-    {file = "pyscf-2.9.0-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:cdce0684be3e71ad82e7885810a00214ddf153ba14f300bbcb40741e76bc3e31"},
-    {file = "pyscf-2.9.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:231f99463d134a65e919882d27db5663ba01471ffee772a821e496803b507a83"},
-    {file = "pyscf-2.9.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bb204d651061fe1137601de9d32e34db24fe2548b5745992bcf4003acd5e05f3"},
-    {file = "pyscf-2.9.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b1da9781ce25db2c34f4d1f844e87f22802e99b75f085bd1ee7a20aad1a33bb6"},
-    {file = "pyscf-2.9.0.tar.gz", hash = "sha256:821dc882f3a5485d8f202abb093330cf1497b26767ba2a1a63b7fa600ddc58a3"},
+    {file = "pyscf-2.10.0-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:470aee33674d11b082b2e53d6490ca92c6a3778d0ce6dd9b1dbbb92811381b17"},
+    {file = "pyscf-2.10.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:4d38ac0bd02544eae781de1c1e143c5d0e06163f6d318a828801b129c1f43654"},
+    {file = "pyscf-2.10.0-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:72263fb85ebeb56c4acd566d8b58ed3d4ef52875ee2a0052421ca9fccdf53917"},
+    {file = "pyscf-2.10.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:40a04c6f972ad07890210ce4a8db41183d8be91d25f068b6ad0e97738dc449c7"},
+    {file = "pyscf-2.10.0.tar.gz", hash = "sha256:064bf7d27b2dd2684727cb703362e83c3a1f1505f23236965024422b1772c985"},
 ]
 
 [package.dependencies]
@@ -4043,4 +4043,4 @@ test = ["websockets"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.13"
-content-hash = "588f958120de5f8f50ad34c0a85f4c4ebabc87cda85606b3cc2403090a379d8d"
+content-hash = "2a8bb7bb4e66df924a1c14068628e6945ac32c29fdeef8bc4ea96082f19cf93a"
