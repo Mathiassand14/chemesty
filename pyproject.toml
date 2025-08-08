@@ -38,7 +38,7 @@ pubchempy = "^1.0.4"
 sympy = "^1.12"
 tqdm = "^4.67.1"
 requests = "^2.31.0"
-plotly = "^5.17.0"
+plotly = "^6.2.0"
 joblib = "^1.5.1"
 
 [tool.poetry.group.dev.dependencies]
