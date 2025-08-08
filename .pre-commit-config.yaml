@@ -1,0 +1,119 @@
+# Pre-commit hooks configuration for Chemesty project
+# See https://pre-commit.com for more information
+
+repos:
+  # Built-in hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      # Check for files that would conflict in case-insensitive filesystems
+      - id: check-case-conflict
+      # Check for files that contain merge conflict strings
+      - id: check-merge-conflict
+      # Check for debugger imports and py37+ breakpoint() calls
+      - id: debug-statements
+      # Check whether files parse as valid python
+      - id: check-ast
+      # Check for byte-order marker
+      - id: check-byte-order-marker
+      # Require literal syntax when initializing empty or zero Python builtin types
+      - id: check-builtin-literals
+      # Check for files with names that would conflict on a case-insensitive filesystem
+      - id: check-case-conflict
+      # Check docstring is first
+      - id: check-docstring-first
+      # Check that executables have shebangs
+      - id: check-executables-have-shebangs
+      # Check JSON files for parseable syntax
+      - id: check-json
+      # Check for files that contain merge conflict strings
+      - id: check-merge-conflict
+      # Check for symlinks which are changed from the repository to a file
+      - id: check-symlinks
+      # Check for files that would conflict in case-insensitive filesystems
+      - id: check-case-conflict
+      # Check TOML file syntax
+      - id: check-toml
+      # Check Yaml file syntax
+      - id: check-yaml
+      # Check for private key files
+      - id: detect-private-key
+      # Ensure that a file is either empty or ends with one newline
+      - id: end-of-file-fixer
+      # Remove UTF-8 byte order marker
+      - id: fix-byte-order-marker
+      # Replace or checks mixed line ending
+      - id: mixed-line-ending
+      # Sort entries in requirements.txt files
+      - id: requirements-txt-fixer
+      # Trim trailing whitespace
+      - id: trailing-whitespace
+
+  # Python code formatting with black
+  - repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+      - id: black
+        language_version: python3
+        args: [--line-length=88]
+
+  # Import sorting with isort
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: [--profile=black, --line-length=88]
+
+  # Flake8 linting
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-docstrings
+          - flake8-import-order
+
+  # MyPy static type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - types-requests
+          - types-setuptools
+        args: [--ignore-missing-imports]
+
+  # Security linting with bandit
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        args: [-r, -x, tests/]
+
+  # Documentation checks
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+        args: [--convention=google]
+
+  # Check for common security issues
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: [--baseline, .secrets.baseline]
+        exclude: poetry.lock
+
+# Configuration for specific hooks
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit.com hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false

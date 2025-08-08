@@ -1,0 +1,81 @@
+[flake8]
+# Configuration for flake8 linting
+
+# Maximum line length (consistent with project guidelines)
+max-line-length = 88
+
+# Exclude directories and files from linting
+exclude = 
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    .env,
+    env,
+    build,
+    dist,
+    docs/build,
+    .tox,
+    .pytest_cache,
+    .mypy_cache,
+    *.egg-info,
+    # Generated element files (if they exist)
+    chemesty/elements/element/*.py
+
+# Error codes to ignore
+ignore = 
+    # E203: whitespace before ':' (conflicts with black)
+    E203,
+    # W503: line break before binary operator (conflicts with black)
+    W503,
+    # E501: line too long (handled by max-line-length)
+    E501,
+    # D100: Missing docstring in public module (not always necessary)
+    D100,
+    # D104: Missing docstring in public package (not always necessary)
+    D104
+
+# Error codes to select (enable specific checks)
+select = 
+    # Pycodestyle errors
+    E,
+    # Pycodestyle warnings
+    W,
+    # Pyflakes
+    F,
+    # Docstring conventions
+    D,
+    # Import order
+    I
+
+# Docstring conventions
+docstring-convention = google
+
+# Import order settings
+import-order-style = google
+application-import-names = chemesty
+
+# Per-file ignores
+per-file-ignores = 
+    # Test files don't need docstrings
+    tests/*.py:D100,D101,D102,D103,D104,D105,D106,D107
+    # __init__.py files don't need docstrings
+    */__init__.py:D104
+    # Setup and configuration files
+    setup.py:D100
+    conftest.py:D100
+    # Examples and scripts
+    examples/*.py:D100,D103
+    scripts/*.py:D100,D103
+
+# Maximum complexity for McCabe complexity checker
+max-complexity = 10
+
+# Show source code for each error
+show-source = True
+
+# Show pep8 violation statistics
+statistics = True
+
+# Count errors and warnings
+count = True

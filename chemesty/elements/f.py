@@ -1,0 +1,91 @@
+from typing import Optional, List, Dict
+from chemesty.elements.atomic_element import AtomicElement
+
+class F(AtomicElement):
+    """
+    Fluorine element (F, Z=9).
+    """
+    
+    @property
+    def name(self) -> str:
+        return "Fluorine"
+    
+    @property
+    def atomic_number(self) -> int:
+        return 9
+    
+    @property
+    def atomic_mass(self) -> float:
+        return 18.998
+    
+    @property
+    def electron_configuration(self) -> str:
+        return "[He] 2s2 2p5"
+    
+    @property
+    def electron_shells(self) -> List[int]:
+        return [2, 7]
+    
+    @property
+    def electronegativity(self) -> Optional[float]:
+        return 3.98
+    
+    @property
+    def atomic_radius(self) -> float:
+        return 50.0
+    
+    @property
+    def ionization_energy(self) -> float:
+        return 17.423
+    
+    @property
+    def electron_affinity(self) -> Optional[float]:
+        return 3.339
+    
+    @property
+    def oxidation_states(self) -> List[int]:
+        return [-1]
+    
+    @property
+    def group(self) -> Optional[int]:
+        return 17
+    
+    @property
+    def period(self) -> int:
+        return 2
+    
+    @property
+    def block(self) -> str:
+        return "p"
+    
+    @property
+    def category(self) -> str:
+        return "halogen"
+    
+    @property
+    def isotopes(self) -> Dict[int, float]:
+        return {19: 1.0}
+    
+    @property
+    def melting_point(self) -> Optional[float]:
+        return 53.53
+    
+    @property
+    def boiling_point(self) -> Optional[float]:
+        return 85.03
+    
+    @property
+    def density_value(self) -> Optional[float]:
+        return 0.001696
+    
+    @property
+    def year_discovered(self) -> Optional[int]:
+        return 1810
+    
+    @property
+    def discoverer(self) -> Optional[str]:
+        return "André-Marie Ampère"
+    
+    @property
+    def symbol(self) -> str:
+        return "F"

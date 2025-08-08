@@ -1,0 +1,26 @@
+[run]
+source = chemesty
+omit = 
+    */tests/*
+    */site-packages/*
+    */dist-packages/*
+    */venv/*
+    */.venv/*
+    */docs/*
+    */examples/*
+    */chemesty/elements/utils/generate_*.py
+    */chemesty/elements/utils/update_*.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    pass
+    raise ImportError
+    except ImportError
+    def __str__
+
+[html]
+directory = coverage_html_report

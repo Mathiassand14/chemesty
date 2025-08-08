@@ -1,0 +1,174 @@
+name: Bug Report
+description: File a bug report to help us improve Chemesty
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please provide as much detail as possible to help us understand and reproduce the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the bug...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Import chemesty
+        2. Create a molecule with '...'
+        3. Call method '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: A clear and concise description of what actually happened.
+      placeholder: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Sample
+      description: Please provide a minimal code sample that reproduces the issue
+      render: python
+      placeholder: |
+        from chemesty import Molecule
+        
+        # Your code here that reproduces the bug
+        mol = Molecule(formula="H2O")
+        # ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error Message/Traceback
+      description: If applicable, paste the full error message or traceback
+      render: text
+      placeholder: Paste the full error message here...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: Chemesty Version
+      description: What version of Chemesty are you running?
+      options:
+        - "0.1.0 (latest)"
+        - "Development version (main branch)"
+        - "Other (please specify in additional context)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: python-version
+    attributes:
+      label: Python Version
+      description: What version of Python are you using?
+      options:
+        - "3.13"
+        - "3.12"
+        - "3.11"
+        - "3.10"
+        - "Other (please specify in additional context)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using?
+      options:
+        - "Windows"
+        - "macOS"
+        - "Linux (Ubuntu)"
+        - "Linux (other)"
+        - "Other (please specify in additional context)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Details
+      description: |
+        Please provide additional environment details that might be relevant:
+        - Installation method (pip, poetry, conda, etc.)
+        - Virtual environment details
+        - Relevant dependencies and their versions
+      placeholder: |
+        - Installed via: pip install chemesty
+        - Virtual environment: venv
+        - RDKit version: 2025.3.3
+        - PySCF version: 2.9.0
+        - etc.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: components
+    attributes:
+      label: Affected Components
+      description: Which components of Chemesty are affected by this bug?
+      options:
+        - label: Elements
+        - label: Molecules
+        - label: Database
+        - label: Quantum Chemistry
+        - label: Reactions
+        - label: Visualization
+        - label: CLI
+        - label: File I/O
+        - label: Other (please specify in additional context)
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here, including screenshots if applicable.
+      placeholder: Any additional information that might help us understand the issue...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues to make sure this is not a duplicate
+          required: true
+        - label: I have provided a minimal code sample that reproduces the issue
+          required: false
+        - label: I have included the full error message/traceback if applicable
+          required: false
+        - label: I am willing to help test a fix for this issue
+          required: false

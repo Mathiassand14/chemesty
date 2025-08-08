@@ -1,0 +1,199 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for Chemesty
+title: "[FEATURE] "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a new feature! Please provide as much detail as possible to help us understand your request.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: A clear and concise description of the feature you'd like to see added.
+      placeholder: Briefly describe the feature...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? What use case does it address?
+      placeholder: |
+        Is your feature request related to a problem? Please describe.
+        A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like to see implemented.
+      placeholder: |
+        A clear and concise description of what you want to happen.
+        Include any specific API design, user interface changes, or implementation details you have in mind.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Describe any alternative solutions or features you've considered.
+      placeholder: |
+        A clear and concise description of any alternative solutions or features you've considered.
+        Why would the proposed solution be better than these alternatives?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: Which area of Chemesty would this feature affect?
+      options:
+        - "Elements and Periodic Table"
+        - "Molecules and Molecular Properties"
+        - "Database and Data Management"
+        - "Quantum Chemistry Calculations"
+        - "Chemical Reactions"
+        - "Visualization and Graphics"
+        - "File I/O and Format Support"
+        - "Command Line Interface"
+        - "API and Developer Experience"
+        - "Performance and Optimization"
+        - "Documentation and Examples"
+        - "Other (please specify in additional context)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to you?
+      options:
+        - "Low - Nice to have"
+        - "Medium - Would be helpful"
+        - "High - Important for my use case"
+        - "Critical - Blocking my work"
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case Details
+      description: |
+        Please provide specific details about how you would use this feature.
+        Include examples of the workflow or tasks this would enable.
+      placeholder: |
+        Describe your specific use case:
+        - What are you trying to accomplish?
+        - How would you use this feature in your work?
+        - What would the typical workflow look like?
+    validations:
+      required: true
+
+  - type: textarea
+    id: api-example
+    attributes:
+      label: API Design Example
+      description: If applicable, provide an example of how you envision the API for this feature.
+      render: python
+      placeholder: |
+        # Example of how the feature might be used
+        from chemesty import Molecule
+        
+        mol = Molecule(formula="C6H6")
+        result = mol.new_feature_method()  # Your proposed API
+        print(result)
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: implementation
+    attributes:
+      label: Implementation Considerations
+      description: What aspects should be considered when implementing this feature?
+      options:
+        - label: Performance impact should be minimal
+        - label: Should be backward compatible
+        - label: Requires new dependencies
+        - label: Needs comprehensive documentation
+        - label: Should include examples and tutorials
+        - label: Requires extensive testing
+        - label: May affect existing APIs
+
+  - type: textarea
+    id: research
+    attributes:
+      label: Background Research
+      description: |
+        Have you found any existing implementations, papers, or resources related to this feature?
+        Please provide links or references if available.
+      placeholder: |
+        - Similar implementations in other libraries
+        - Relevant scientific papers or methods
+        - Standards or specifications
+        - Related GitHub issues or discussions
+    validations:
+      required: false
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex do you think this feature would be to implement?
+      options:
+        - "Simple - Small addition or modification"
+        - "Medium - Moderate development effort"
+        - "Complex - Significant development effort"
+        - "Very Complex - Major architectural changes"
+        - "Unknown - Not sure about complexity"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context, screenshots, mockups, or examples about the feature request here.
+        Include any relevant scientific background or domain knowledge that would help understand the request.
+      placeholder: Any additional information that would help us understand and implement this feature...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you interested in contributing to this feature?
+      options:
+        - label: I would like to work on implementing this feature
+        - label: I can help with testing the implementation
+        - label: I can provide domain expertise or scientific guidance
+        - label: I can help with documentation and examples
+        - label: I can help with code review
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues to make sure this is not a duplicate
+          required: true
+        - label: I have provided a clear use case for this feature
+          required: true
+        - label: I have considered how this feature fits with Chemesty's goals
+          required: false
+        - label: I am willing to participate in discussions about this feature
+          required: false

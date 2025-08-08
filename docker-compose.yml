@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  chemesty:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chemesty:latest
+    container_name: chemesty-app
+    restart: unless-stopped
+    volumes:
+      # Mount data directory for persistent storage
+      - ./data:/app/data
+      # Mount examples directory for easy access
+      - ./examples:/app/examples:ro
+      # Mount docs for development
+      - ./docs:/app/docs:ro
+    environment:
+      - CHEMESTY_DATA_DIR=/app/data
+      - CHEMESTY_LOG_LEVEL=INFO
+      - PYTHONPATH=/app
+    ports:
+      - "8000:8000"
+    networks:
+      - chemesty-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import chemesty; print('Health check passed')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Jupyter notebook service for interactive development
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chemesty:latest
+    container_name: chemesty-jupyter
+    restart: unless-stopped
+    command: >
+      bash -c "pip install jupyter jupyterlab &&
+               jupyter lab --ip=0.0.0.0 --port=8888 --no-browser 
+               --allow-root --NotebookApp.token='' --NotebookApp.password=''"
+    volumes:
+      - ./:/app
+      - ./data:/app/data
+      - ./examples:/app/examples
+      - ./notebooks:/app/notebooks
+    environment:
+      - CHEMESTY_DATA_DIR=/app/data
+      - JUPYTER_ENABLE_LAB=yes
+    ports:
+      - "8888:8888"
+    networks:
+      - chemesty-network
+    profiles:
+      - jupyter
+
+  # Optional: Database service for storing chemical data
+  postgres:
+    image: postgres:15-alpine
+    container_name: chemesty-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=chemesty
+      - POSTGRES_USER=chemesty
+      - POSTGRES_PASSWORD=chemesty_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - chemesty-network
+    profiles:
+      - database
+
+  # Optional: Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: chemesty-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - chemesty-network
+    profiles:
+      - cache
+
+
+networks:
+  chemesty-network:
+    driver: bridge
+    name: chemesty-network
+
+volumes:
+  postgres_data:
+    name: chemesty-postgres-data
+  redis_data:
+    name: chemesty-redis-data
