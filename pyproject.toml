@@ -29,7 +29,7 @@ chemesty = "chemesty.cli.main:main"
 
 [tool.poetry.dependencies]
 python = "^3.13"
-openmm = "^8.3.0"
+openmm = "^8.3.1"
 chempy = "^0.9.0"
 rdkit = "^2025.3.3"
 pyscf = "^2.9.0"
