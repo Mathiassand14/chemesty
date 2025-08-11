@@ -44,7 +44,7 @@ joblib = "^1.5.1"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
 pytest-cov = "^4.1.0"
-hypothesis = "^6.98.0"
+hypothesis = "^6.137.2"
 sphinx = "^7.0.0"
 sphinx-rtd-theme = "^2.0.0"
 sphinx-autodoc-typehints = "^2.0.0"
